@@ -15,9 +15,14 @@ header {
   padding: 1em;
 }
 
+main {
+  max-width: 80%;
+  margin: 2em auto;
+}
+
 nav {
-  width: 100vw;
-  height: 4em;
+  width: 100%;
+  min-height: 4em;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
 }
@@ -42,32 +47,72 @@ nav a {
   margin: 0 auto;
 }
 
-main {
-  max-width: 80%;
-  margin: 0 auto;
+@media only screen and (max-width: 500px) {
+  nav {
+    height: 8em;
+  }
 }
 
-#form__parent {
-  display: table;
-  width: 100%;
-}
-
-#product__form--create {
-  display: table-cell;
+.form__title {
+  max-width: 30%;
+  padding: 1em 0.5em;
+  background: #636b6f;
   text-align: center;
-  vertical-align: middle;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.form__content {
+  background: #636b6f;
+  padding: 1em 2.5em;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+}
+
+.form__content input:not([type=submit]),
+.form__content textarea {
+  min-width: calc(100% - 0.9em);
+  max-width: calc(100% - 0.9em);
+  min-height: 2.4em;
+  border-radius: 5px;
+  border: 0;
+  margin: 0.2em 0;
+  padding: 0 0.9em;
+}
+
+.form__content label {
+  display: inline-block;
+  margin: 0.5em 0;
+}
+
+.form__content label:first-of-type {
+  margin-bottom: 0.5em;
+}
+
+.alert {
+  max-width: 40%;
+  margin: 1em;
+}
+
+.alert-bad {
+  color: red;
 }
 
 .is-invalid {
-  border: 1px solid red;
+  border: 1px solid red !important;
 }
 
 .error-message {
-  background: salmon;
-  padding: 1em;
+  color: red;
+  margin: 0.1em 0;
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
-  margin: 0.2em auto 1em;
+}
+
+@media only screen and (max-width: 570px) {
+  .form__title {
+    max-width: 50%;
+  }
 }
 

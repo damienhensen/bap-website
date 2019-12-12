@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function showPage()
+    public function show()
     {
         $voornaam = 'Joe';
 

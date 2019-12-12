@@ -1,20 +1,65 @@
-#form__parent {
-    display: table;
-    width: 100%;
-}
-#product__form--create {
-    display: table-cell;
+$formTitleWidth: .5em;
+$inputPadding: .9em;
+$formBorderRadius: 5px;
+$formBackground: #636b6f;
+
+.form__title {
+    max-width: 30%;
+    padding: 1em $formTitleWidth;
+    background: $formBackground;
     text-align: center;
-    vertical-align: middle;
+    border-top-left-radius: $formBorderRadius;
+    border-top-right-radius: $formBorderRadius;
+}
+
+.form__content {
+    background: $formBackground;
+    padding: 1em 2.5em;
+    border-radius: $formBorderRadius;
+    border-top-left-radius: 0;
+
+    input:not([type=submit]), textarea {
+        min-width: calc(100% - #{$inputPadding});
+        max-width: calc(100% - #{$inputPadding});
+        min-height: 2.4em;
+        border-radius: $formBorderRadius;
+        border: 0;
+        margin: .2em 0;
+        padding: 0 $inputPadding;
+    }
+
+    label {
+        display: inline-block;
+        margin: .5em 0;
+    }
+
+    label:first-of-type {
+        margin-bottom: .5em;
+    }
+}
+
+.alert {
+    max-width: 40%;
+    margin: 1em;
+}
+
+.alert-bad {
+    color: red;
 }
 
 .is-invalid {
-    border: 1px solid red;
+    border: 1px solid red !important;
 }
 
 .error-message {
-    background: salmon;
-    padding: 1em;
+    color: red;
+    margin: .1em 0;
     max-width: max-content;
-    margin: .2em auto 1em;
 }
+
+@media only screen and (max-width: 570px) {
+    .form__title {
+        max-width: 50%;
+    }
+}
+

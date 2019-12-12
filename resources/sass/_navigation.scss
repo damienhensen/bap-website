@@ -1,0 +1,32 @@
+nav {
+    width: 100%;
+    min-height: 4em;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+
+    ul {
+        list-style: none;
+        float: left;
+    }
+
+    li {
+        float: left;
+        padding: 1em;
+        margin-top: .5em;
+    }
+
+    a {
+        color: white;
+    }
+}
+
+.nav__content {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 500px) {
+    nav {
+        height: 8em;
+    }
+}

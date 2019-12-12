@@ -5,6 +5,6 @@
 @endsection
 
 @section('header')
-    <h2>Welkom op de homepage {{ $naam }}</h2>
+    <h1>Welkom op de homepage {{ $naam }}</h1>
 @endsection
 

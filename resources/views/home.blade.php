@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    <h2>Welkom op de homepage {{ $voornaam }}</h2>
+    <h1>Home</h1>
 @endsection
 
 @section('content')

@@ -5,6 +5,6 @@
 @endsection
 
 @section('header')
-    <h2>Post {{ $id }}</h2>
+    <h1>Post {{ $id }}</h1>
 @endsection
 

@@ -8,8 +8,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $voornaam = 'Joe';
-        $achternaam = 'Mama';
 
         $posts = [
             'Why',
@@ -20,7 +18,7 @@ class HomeController extends Controller
             'haha lol'
         ];
 
-        return view('home', ['voornaam' => $voornaam, 'achternaam' => $achternaam, 'posts' => $posts]);
+        return view('home', ['posts' => $posts]);
     }
 
     public function showName($naam)

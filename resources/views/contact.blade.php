@@ -5,5 +5,5 @@
 @endsection
 
 @section('header')
-    <h2>Welkom op de contact page {{ $voornaam  }}</h2>
+    <h1>Welkom op de contact page {{ $voornaam  }}</h1>
 @endsection

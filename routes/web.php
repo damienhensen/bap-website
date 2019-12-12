@@ -19,9 +19,11 @@ Route::get('/', 'HomeController@index')->name('Home');
 
 Route::get('/hallo/{naam}', 'HomeController@showName')->name('Hallo');
 
-Route::get('/contact', 'ContactController@showPage')->name('Contact');
+Route::get('/contact', 'ContactController@show')->name('Contact');
 
-Route::get('/product/create', 'ProductController@create')->name('product.create');
+Route::get('/over', 'AboutController@show')->name('Over');
+
+Route::get('/product/create', 'ProductController@create')->name('Product Create');
 Route::post('/product/create', 'ProductController@store')->name('product.store');
 
 // id = anything
