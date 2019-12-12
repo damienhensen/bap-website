@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('styles')
-    @parent
+    <link href="/css/app.css" rel="stylesheet">
 @endsection
 
 @section('header')
