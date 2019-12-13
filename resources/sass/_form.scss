@@ -36,6 +36,15 @@ $formBackground: #636b6f;
     label:first-of-type {
         margin-bottom: .5em;
     }
+
+    input[type=submit] {
+        margin-top: 1.5em;
+        padding: 1em 2em;
+        border-radius: $formBorderRadius;
+        background: #3058a1;
+        color: white;
+        border: none;
+    }
 }
 
 .alert {

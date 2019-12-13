@@ -93,6 +93,15 @@ nav a {
   margin-bottom: 0.5em;
 }
 
+.form__content input[type=submit] {
+  margin-top: 1.5em;
+  padding: 1em 2em;
+  border-radius: 5px;
+  background: #3058a1;
+  color: white;
+  border: none;
+}
+
 .alert {
   max-width: 40%;
   margin: 1em;

@@ -15,7 +15,7 @@
 
     <div class="form__div">
         <div class="form__title"><h3>Maak product</h3></div>
-        <form action="{{ route('product.store') }}" METHOD="POST" class="form__content" id="product__form--create">
+        <form action="{{ route('product.store') }}" METHOD="POST" enctype="multipart/form-data" class="form__content" id="product__form--create">
             @csrf
             <label>Titel</label> <br>
             <input class="product__form--title @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}"> <br>
@@ -31,6 +31,20 @@
                     {{ $message }}
                 </div>
             @enderror
+            <label>Image</label> <br>
+            <input class="product__form--image @error('image') is-invalid @enderror" type="file" name="image" value="{{ old('image') }}"> <br>
+            @error('image')
+            <div class="error-message">
+                {{ $message }}
+            </div>
+            @enderror
+            <label>Image URL</label> <br>
+            <input class="product__form--image2 @error('image2') is-invalid @enderror" type="text" name="image2" value="{{ old('image2') }}"> <br>
+            @error('image2')
+            <div class="error-message">
+                {{ $message }}
+            </div>
+            @enderror
             <label>Prijs</label> <br>
             <input class="product__form--price @error('price') is-invalid @enderror" type="text" name="price" value="{{ old('price') }}"> <br>
             @error('price')
@@ -45,7 +59,7 @@
                     {{ $message }}
                 </div>
             @enderror
-            <input type="submit" value="Post!" name="savePost" id="post__form--submit">
+            <input type="submit" value="Make!" name="savePost" id="post__form--submit">
         </form>
     </div>
 @endsection

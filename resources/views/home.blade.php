@@ -17,5 +17,5 @@
 
     </ul>
 
-    <p>Is this content?</p>
+    <p>Hier komen later dingen uit de DB</p>
 @endsection

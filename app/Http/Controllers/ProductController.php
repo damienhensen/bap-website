@@ -24,7 +24,7 @@ class ProductController extends Controller
     public function create()
     {
         // make product
-        return view('product.form');
+        return view('product.form-create');
     }
 
     /**
@@ -39,11 +39,24 @@ class ProductController extends Controller
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required|min:10',
+            'image' => 'required_without:image2|image',
+            'image2' => 'required_without:image|nullable|url|ends_with:.jpg,.jpeg,.png,.svg',
             'price' => 'required|numeric|gt:0',
             'date' => 'required|after_or_equal:today',
         ]);
 
-        return 'success';
+        \DB::table('products')->insert([
+            [
+                'productName' => $request->input('title'),
+                'productDetails' => $request->input('description'),
+                'productImage' => $request->input('image'),
+                'productImageLink' => $request->input('image2'),
+                'productPrice' => $request->input('price'),
+                'productPubDate' => $request->input('date')
+            ]
+        ]);
+
+        return $this->create();
     }
 
     /**
