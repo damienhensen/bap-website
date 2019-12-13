@@ -1,0 +1,24 @@
+.PAGE--ERROR {
+    text-align: center;
+
+    h2 {
+        margin-top: 7em;
+        font-weight: normal;
+    }
+
+    .PAGE--ERROR__sad {
+        display: block;
+        transform: rotate(90deg);
+        width: max-content;
+        height: max-content;
+        font-size: 3em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    .PAGE--ERROR__link {
+        font-weight: bolder;
+        color: #C14A33;
+    }
+}

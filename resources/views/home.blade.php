@@ -11,12 +11,8 @@
 @section('content')
     <ul>
 
-    @foreach($posts as $post)
-        @if($post == 'a')
-            <li><strong>{{ $post }}</strong></li>
-        @else
-            <li>{{ $post }}</li>
-        @endif
+    @foreach($products as $product)
+            <li>{{ $product }}</li>
     @endforeach
 
     </ul>

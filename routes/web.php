@@ -23,6 +23,9 @@ Route::get('/contact', 'ContactController@show')->name('Contact');
 
 Route::get('/over', 'AboutController@show')->name('Over');
 
+Route::get('/bedrijven', 'BedrijvenController@list')->name('bedrijven.list');
+Route::get('/bedrijven/{id}', 'BedrijvenController@details')->name('bedrijven.details');
+
 Route::get('/product/create', 'ProductController@create')->name('Product Create');
 Route::post('/product/create', 'ProductController@store')->name('product.store');
 
@@ -37,3 +40,5 @@ Route::get('/product/{id}', 'ProductController@show')->name('product');
 
 // id = number, name = text
 // Route::get('/posts/{id}/{name}', 'ProductController@showPost')->where(array('id' => '[0-9]+', 'name' => '[a-z]+'));
+
+Route::fallback('NotFoundController@show')->name('404');
