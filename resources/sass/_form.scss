@@ -3,6 +3,10 @@ $inputPadding: .9em;
 $formBorderRadius: 5px;
 $formBackground: #636b6f;
 
+.form__div {
+    margin: 2em 0;
+}
+
 .form__title {
     max-width: 30%;
     padding: 1em $formTitleWidth;

@@ -8,17 +8,21 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = [
-            'Why',
-            'is',
-            'this',
-            'a',
-            'thing',
-            'haha lol'
-        ];
+        // Haal alle bedrijven op met QueryBuilder
+//        $companies = \DB::table('companies')->get();
+//        $companies = \DB::table('companies')->orderBy('name')->get();
+//        $companies = \DB::table('companies')->where('country', '=', 'Bahamas')->get();
+//        $companies = \DB::table('companies')->where('country', '=', 'Bahamas')->where('city', '=', 'Middelkerke')->get();
+//        $companies = \DB::table('companies')->where('country', '=', 'Bahamas')->where('city', '=', 'Middelkerke')->value('name');
+//        dd($companies);
 
-        return view('home', ['products' => $posts]);
+        // laat alle producten zien
+        $products = \DB::table('products')->orderBy('price', 'Asc')->get();
+
+        return view('home', ['products' => $products]);
     }
+
+
 
     public function showName($naam)
     {

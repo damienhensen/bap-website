@@ -24,7 +24,9 @@ class ProductController extends Controller
     public function create()
     {
         // make product
-        return view('product.form-create');
+        $products = \DB::table('products')->get();
+        $count = $products->count();
+        return view('product.form', ['ProductTotal' => $count, 'products' => $products]);
     }
 
     /**
@@ -35,28 +37,48 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // validate form and save in db
-        $request->validate([
-            'title' => 'required|min:3',
-            'description' => 'required|min:10',
-            'image' => 'required_without:image2|image',
-            'image2' => 'required_without:image|nullable|url|ends_with:.jpg,.jpeg,.png,.svg',
-            'price' => 'required|numeric|gt:0',
-            'date' => 'required|after_or_equal:today',
-        ]);
+        if ($request->has('saveProduct')) {
 
-        \DB::table('products')->insert([
-            [
-                'productName' => $request->input('title'),
-                'productDetails' => $request->input('description'),
-                'productImage' => $request->input('image'),
-                'productImageLink' => $request->input('image2'),
-                'productPrice' => $request->input('price'),
-                'productPubDate' => $request->input('date')
-            ]
-        ]);
+            // validate form and save in db
+            $request->validate([
+                'title' => 'required|min:3',
+                'description' => 'required|max:150',
+                'details' => 'required|min:10',
+                'image' => 'required_without:image2|image',
+                'image2' => 'required_without:image|nullable|url|ends_with:.jpg,.jpeg,.png,.svg',
+                'price' => 'required|numeric|gt:0',
+                'date' => 'required|after_or_equal:today',
+            ]);
 
-        return $this->create();
+            \DB::table('products')->insert([
+                [
+                    'name' => $request->input('title'),
+                    'description' => $request->input('description'),
+                    'details' => $request->input('details'),
+                    'image' => $request->input('image'),
+                    'imagelink' => $request->input('image2'),
+                    'price' => $request->input('price'),
+                    'pubdate' => $request->input('date')
+                ]
+            ]);
+
+        }
+
+        if ($request->has('deleteProduct')) {
+
+            // validate form and delete entry
+            $request->validate([
+                'id' => 'required|numeric'
+            ]);
+
+            \DB::table('products')->where('productID', '=', $request->input('id'))->delete();
+
+        }
+
+
+
+
+        return redirect()->to('cms');
     }
 
     /**
@@ -67,7 +89,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('product', ['id' => $id]);
+        // Haal product op met id $id
+        $product = \DB::table('products')->find($id);
+
+        return view('product.details', ['product' => $product]);
     }
 
     /**
@@ -76,9 +101,42 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
-        //
+        // Zelfde als show maar dan toch iets anders ;)
+        $product = \DB::table('products')->find($id);
+
+        if ($request->has('editProduct')) {
+
+            // validate form and save in db
+            $request->validate([
+                'title' => 'required|min:3',
+                'description' => 'required|max:150',
+                'details' => 'required|min:10',
+                'image' => 'required_without:image2|image',
+                'image2' => 'required_without:image|nullable|url|ends_with:.jpg,.jpeg,.png,.svg',
+                'price' => 'required|numeric|gt:0',
+                'date' => 'required|after_or_equal:today',
+            ]);
+
+            \DB::table('products')
+                ->where('id', $id)
+                ->update(
+                    [
+                        'name' => $request->input('title'),
+                        'description' => $request->input('description'),
+                        'details' => $request->input('details'),
+                        'image' => $request->input('image'),
+                        'imagelink' => $request->input('image2'),
+                        'price' => $request->input('price'),
+                        'pubdate' => $request->input('date')
+                    ]
+                );
+
+            return redirect()->to('/cms/edit/'.$id);
+        }
+
+        return view('product.form-edit', ['product' => $product]);
     }
 
     /**

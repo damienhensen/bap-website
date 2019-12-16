@@ -1,0 +1,125 @@
+#product--details__carousel {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80%;
+    height: 200px;
+    background-color: red;
+
+    .product--details__carousel--img {
+        position: relative;
+        top: -30px;
+        min-width: 100%;
+        min-height: 100%;
+        background: green;
+        object-fit: contain;
+    }
+
+    button {
+        position: relative;
+        border: none;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+
+        &.previous--img {
+            right: 20%;
+            top: 50%;
+            background-image: url("https://damienhensen.nl/LI/previous.svg");
+        }
+
+        &.next--img {
+            top: -80%;
+            left: 105%;
+            background-image: url("https://damienhensen.nl/LI/next.svg");
+        }
+    }
+}
+
+#product--details__order {
+    position: relative;
+    left: 1.5em;
+    background: green;
+    border: none;
+    color: white;
+    border-radius: 23px;
+    padding: 1em 3em;
+    font-size: 1.2em;
+    width: 80%;
+    margin: 1em auto;
+}
+
+.product--details__price {
+    font-size: 2em;
+    color: greenyellow;
+    margin: .5em;
+
+    &:before {
+        content: '€ ';
+    }
+}
+
+.product--details__details {
+    margin-top: 4em;
+}
+
+@media only screen and (min-width: 740px) {
+    .product--details__main {
+        position: relative;
+        top: -4em;
+    }
+    #product--details__carousel {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-gap: 1em;
+        float: left;
+        max-width: 60%;
+        height: 200px;
+        margin: 0 1em;
+
+        .product--details__carousel--img {
+            top: 0;
+            height: 100px;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+
+            &.previous--img {
+                top: 40%;
+                right: 0;
+            }
+
+            &.next--img {
+                top: 40%;
+                left: 0;
+            }
+        }
+    }
+
+    #product--details__order {
+        left: 7em;
+        top: -4.4em;
+    }
+
+    .product--details__details {
+        position: relative;
+        float: none;
+        margin-top: 0;
+    }
+
+}
+
+@media only screen and (min-width: 1400px) {
+    #product--details__carousel {
+        max-width: 50%;
+        height: 300px;
+
+        button {
+            &.next--img {
+                left: 0;
+            }
+        }
+    }
+
+}

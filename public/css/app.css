@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 * {
   margin: 0;
   padding: 0;
@@ -55,6 +57,204 @@ nav a {
   nav {
     height: 8em;
   }
+}
+
+.product--list {
+  max-width: 100%;
+}
+
+.product--list .product--list__product {
+  background: #636b6f;
+  margin: 2em auto;
+  padding: 1em;
+  border-radius: 23px;
+}
+
+.product--list .product--list__title {
+  font-size: 1.2em;
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.product--list .product--list__img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.product--list .product--list__description {
+  font-size: 14px;
+  margin: 1em 0;
+}
+
+.product--list .product--list__price {
+  font-size: 1.4em;
+  color: greenyellow;
+}
+
+.product--list .product--list__price:before {
+  content: "\20AC   ";
+}
+
+@media only screen and (min-width: 740px) {
+  .product--list {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 2em;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .product--list .product--list__product {
+    max-width: 100%;
+    padding: 1em 0.5em;
+    margin: 0 -0.5em;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .product--list .product--list__img {
+    max-height: 300px;
+    max-width: 300px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .product--list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 2em;
+  }
+}
+
+#product--details__carousel {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 80%;
+  height: 200px;
+  background-color: red;
+}
+
+#product--details__carousel .product--details__carousel--img {
+  position: relative;
+  top: -30px;
+  min-width: 100%;
+  min-height: 100%;
+  background: green;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#product--details__carousel button {
+  position: relative;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+}
+
+#product--details__carousel button.previous--img {
+  right: 20%;
+  top: 50%;
+  background-image: url("https://damienhensen.nl/LI/previous.svg");
+}
+
+#product--details__carousel button.next--img {
+  top: -80%;
+  left: 105%;
+  background-image: url("https://damienhensen.nl/LI/next.svg");
+}
+
+#product--details__order {
+  position: relative;
+  left: 1.5em;
+  background: green;
+  border: none;
+  color: white;
+  border-radius: 23px;
+  padding: 1em 3em;
+  font-size: 1.2em;
+  width: 80%;
+  margin: 1em auto;
+}
+
+.product--details__price {
+  font-size: 2em;
+  color: greenyellow;
+  margin: 0.5em;
+}
+
+.product--details__price:before {
+  content: "\20AC   ";
+}
+
+.product--details__details {
+  margin-top: 4em;
+}
+
+@media only screen and (min-width: 740px) {
+  .product--details__main {
+    position: relative;
+    top: -4em;
+  }
+
+  #product--details__carousel {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 1em;
+    float: left;
+    max-width: 60%;
+    height: 200px;
+    margin: 0 1em;
+  }
+
+  #product--details__carousel .product--details__carousel--img {
+    top: 0;
+    height: 100px;
+  }
+
+  #product--details__carousel button {
+    width: 50px;
+    height: 50px;
+  }
+
+  #product--details__carousel button.previous--img {
+    top: 40%;
+    right: 0;
+  }
+
+  #product--details__carousel button.next--img {
+    top: 40%;
+    left: 0;
+  }
+
+  #product--details__order {
+    left: 7em;
+    top: -4.4em;
+  }
+
+  .product--details__details {
+    position: relative;
+    float: none;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  #product--details__carousel {
+    max-width: 50%;
+    height: 300px;
+  }
+
+  #product--details__carousel button.next--img {
+    left: 0;
+  }
+}
+
+.form__div {
+  margin: 2em 0;
 }
 
 .form__title {

@@ -26,8 +26,10 @@ Route::get('/over', 'AboutController@show')->name('Over');
 Route::get('/bedrijven', 'BedrijvenController@list')->name('bedrijven.list');
 Route::get('/bedrijven/{id}', 'BedrijvenController@details')->name('bedrijven.details');
 
-Route::get('/product/create', 'ProductController@create')->name('Product Create');
-Route::post('/product/create', 'ProductController@store')->name('product.store');
+Route::get('/cms', 'ProductController@create')->name('CMS');
+Route::get('/cms/edit/{id}', 'ProductController@edit')->name('CMS-edit');
+Route::post('/cms/edit/{id}', 'ProductController@edit')->name('CMS-edit.store');
+Route::post('/cms', 'ProductController@store')->name('CMS.store');
 
 // id = anything
 Route::get('/product/{id}', 'ProductController@show')->name('product');

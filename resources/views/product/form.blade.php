@@ -1,7 +1,5 @@
 @extends('layouts.master')
 
-
-
 @section('header')
     <h1>Maak product</h1>
 @endsection
@@ -15,7 +13,7 @@
 
     <div class="form__div">
         <div class="form__title"><h3>Maak product</h3></div>
-        <form action="{{ route('product.store') }}" METHOD="POST" enctype="multipart/form-data" class="form__content" id="product__form--create">
+        <form action="{{ route('CMS.store') }}" METHOD="POST" enctype="multipart/form-data" class="form__content" id="product__form--create">
             @csrf
             <label>Titel</label> <br>
             <input class="product__form--title @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}"> <br>
@@ -24,9 +22,16 @@
                     {{ $message }}
                 </div>
             @enderror
-            <label>Beschrijving</label> <br>
+            <label>Beschrijving (Kort)</label> <br>
             <textarea class="product__form--description @error('description') is-invalid @enderror" name="description">{{ old('description') }}</textarea> <br>
             @error('description')
+            <div class="error-message">
+                {{ $message }}
+            </div>
+            @enderror
+            <label>Beschrijving (Compleet)</label> <br>
+            <textarea class="product__form--details @error('details') is-invalid @enderror" name="details">{{ old('details') }}</textarea> <br>
+            @error('details')
                 <div class="error-message">
                     {{ $message }}
                 </div>
@@ -59,7 +64,32 @@
                     {{ $message }}
                 </div>
             @enderror
-            <input type="submit" value="Make!" name="savePost" id="post__form--submit">
+            <input type="submit" value="Make!" name="saveProduct" id="post__form--submit">
+        </form>
+    </div>
+
+    <div class="form__div">
+        <div class="form__title"><h3>Verwijder product</h3></div>
+        <form action="{{ route('CMS.store') }}" METHOD="POST" class="form__content" id="product__form--delete">
+            @csrf
+            <p>Er zijn {{ $ProductTotal }} producten</p>
+            <label>ID</label> <br>
+            <input class="product__form--id @error('id') is-invalid @enderror" type="text" name="id" value="{{ old('id') }}"> <br>
+            @error('id')
+            <div class="error-message">
+                {{ $message }}
+            </div>
+            @enderror
+            <input type="submit" value="Delete!" name="deleteProduct" id="post__form--submit">
+        </form>
+    </div>
+
+    <div class="form__div">
+        <div class="form__title"><h3>Update product</h3></div>
+        <form action="{{ route('CMS.store') }}" METHOD="POST" class="form__content" id="product__form--update">
+            @foreach($products as $product)
+                <p class="product--list__title"><span>{{ $product->id }}</span> <a href="{{ route('CMS-edit', ['id' => $product->id]) }}">{{ $product->name }}</a></p>
+            @endforeach
         </form>
     </div>
 @endsection
