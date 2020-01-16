@@ -10,7 +10,8 @@
             <div class="product--list__product">
                 <h2 class="product--list__title"><a href="{{ route('product', ['id' => $product->id]) }}">{{ $product->name }}</a></h2>
                 <img
-                    src="@if (is_null($product->image)) {{ $product->imagelink }} @else {{ $product->image }} @endif"
+{{--                    src="@if (is_null($product->image)) {{ $product->imagelink }} @else {{ $product->image }} @endif"--}}
+                    src="https://damienhensen.nl/portfolio/images/projects/MyBand.png"
                     class="product--list__img"
                 />
                 <p class="product--list__description">{{ $product->description }}</p>

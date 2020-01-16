@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Products;
 
 class ProductController extends Controller
 {
@@ -17,7 +18,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Ga naar CMS
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,7 +31,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Sla product op
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -40,27 +41,25 @@ class ProductController extends Controller
         if ($request->has('saveProduct')) {
 
             // validate form and save in db
-            $request->validate([
+            $productData = $request->validate([
                 'title' => 'required|min:3',
                 'description' => 'required|max:150',
                 'details' => 'required|min:10',
-                'image' => 'required_without:image2|image',
-                'image2' => 'required_without:image|nullable|url|ends_with:.jpg,.jpeg,.png,.svg',
+//                'image' => 'required_without:image2|image',
+//                'image2' => 'required_without:image|nullable|url|ends_with:.jpg,.jpeg,.png,.svg',
                 'price' => 'required|numeric|gt:0',
                 'date' => 'required|after_or_equal:today',
             ]);
 
-            \DB::table('products')->insert([
-                [
-                    'name' => $request->input('title'),
-                    'description' => $request->input('description'),
-                    'details' => $request->input('details'),
-                    'image' => $request->input('image'),
-                    'imagelink' => $request->input('image2'),
-                    'price' => $request->input('price'),
-                    'pubdate' => $request->input('date')
-                ]
-            ]);
+            $product                = new Products();
+
+            $product['name']        = $productData['title'];
+            $product['description'] = $productData['description'];
+            $product['details']     = $productData['details'];
+            $product['price']       = $productData['price'];
+            $product['pubdate']     = $productData['date'];
+
+            $product->save();
 
         }
 
@@ -113,8 +112,8 @@ class ProductController extends Controller
                 'title' => 'required|min:3',
                 'description' => 'required|max:150',
                 'details' => 'required|min:10',
-                'image' => 'required_without:image2|image',
-                'image2' => 'required_without:image|nullable|url|ends_with:.jpg,.jpeg,.png,.svg',
+//                'image' => 'required_without:image2|image',
+//                'image2' => 'required_without:image|nullable|url|ends_with:.jpg,.jpeg,.png,.svg',
                 'price' => 'required|numeric|gt:0',
                 'date' => 'required|after_or_equal:today',
             ]);
@@ -126,8 +125,8 @@ class ProductController extends Controller
                         'name' => $request->input('title'),
                         'description' => $request->input('description'),
                         'details' => $request->input('details'),
-                        'image' => $request->input('image'),
-                        'imagelink' => $request->input('image2'),
+//                        'image' => $request->input('image'),
+//                        'imagelink' => $request->input('image2'),
                         'price' => $request->input('price'),
                         'pubdate' => $request->input('date')
                     ]

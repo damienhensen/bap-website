@@ -36,20 +36,20 @@
             {{ $message }}
         </div>
         @enderror
-        <label>Image</label> <br>
-        <input class="product__form--image @error('image') is-invalid @enderror" type="file" name="image" value="{{ $product->image }}"> <br>
-        @error('image')
-        <div class="error-message">
-            {{ $message }}
-        </div>
-        @enderror
-        <label>Image URL</label> <br>
-        <input class="product__form--image2 @error('image2') is-invalid @enderror" type="text" name="image2" value="{{ $product->imagelink }}"> <br>
-        @error('image2')
-        <div class="error-message">
-            {{ $message }}
-        </div>
-        @enderror
+{{--        <label>Image</label> <br>--}}
+{{--        <input class="product__form--image @error('image') is-invalid @enderror" type="file" name="image" value="{{ $product->image }}"> <br>--}}
+{{--        @error('image')--}}
+{{--        <div class="error-message">--}}
+{{--            {{ $message }}--}}
+{{--        </div>--}}
+{{--        @enderror--}}
+{{--        <label>Image URL</label> <br>--}}
+{{--        <input class="product__form--image2 @error('image2') is-invalid @enderror" type="text" name="image2" value="{{ $product->imagelink }}"> <br>--}}
+{{--        @error('image2')--}}
+{{--        <div class="error-message">--}}
+{{--            {{ $message }}--}}
+{{--        </div>--}}
+{{--        @enderror--}}
         <label>Prijs</label> <br>
         <input class="product__form--price @error('price') is-invalid @enderror" type="text" name="price" value="{{ $product->price }}"> <br>
         @error('price')

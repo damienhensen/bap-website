@@ -68,6 +68,7 @@ nav a {
   margin: 2em auto;
   padding: 1em;
   border-radius: 23px;
+  width: 25vw;
 }
 
 .product--list .product--list__title {
@@ -134,15 +135,14 @@ nav a {
   width: 100%;
   max-width: 80%;
   height: 200px;
-  background-color: red;
 }
 
 #product--details__carousel .product--details__carousel--img {
   position: relative;
   top: -30px;
   min-width: 100%;
+  max-width: 100%;
   min-height: 100%;
-  background: green;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -231,7 +231,7 @@ nav a {
   }
 
   #product--details__order {
-    left: 7em;
+    left: 10em;
     top: -4.4em;
   }
 

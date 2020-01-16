@@ -3,14 +3,13 @@
     width: 100%;
     max-width: 80%;
     height: 200px;
-    background-color: red;
 
     .product--details__carousel--img {
         position: relative;
         top: -30px;
         min-width: 100%;
+        max-width: 100%;
         min-height: 100%;
-        background: green;
         object-fit: contain;
     }
 
@@ -98,7 +97,7 @@
     }
 
     #product--details__order {
-        left: 7em;
+        left: 10em;
         top: -4.4em;
     }
 
