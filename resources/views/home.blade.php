@@ -1,22 +1,23 @@
-@extends('layouts.master')
-
-@section('header')
-    <h1>Home</h1>
-@endsection
+@extends('layouts.app')
 
 @section('content')
-    <div class="product--list">
-        @foreach($products as $product)
-            <div class="product--list__product">
-                <h2 class="product--list__title"><a href="{{ route('product', ['id' => $product->id]) }}">{{ $product->name }}</a></h2>
-                <img
-{{--                    src="@if (is_null($product->image)) {{ $product->imagelink }} @else {{ $product->image }} @endif"--}}
-                    src="https://damienhensen.nl/portfolio/images/projects/MyBand.png"
-                    class="product--list__img"
-                />
-                <p class="product--list__description">{{ $product->description }}</p>
-                <h4 class="product--list__price">{{ $product->price }}</h4>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in!
+                </div>
             </div>
-        @endforeach
+        </div>
     </div>
+</div>
 @endsection

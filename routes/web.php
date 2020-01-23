@@ -15,7 +15,7 @@
 //    return view('welcome');
 //})->name('Welcome');
 
-Route::get('/', 'HomeController@index')->name('Home');
+Route::get('/', 'HomeController2@index')->name('Home');
 
 Route::get('/hallo/{naam}', 'HomeController@showName')->name('Hallo');
 
@@ -26,10 +26,13 @@ Route::get('/over', 'AboutController@show')->name('Over');
 Route::get('/bedrijven', 'BedrijvenController@list')->name('bedrijven.list');
 Route::get('/bedrijven/{id}', 'BedrijvenController@details')->name('bedrijven.details');
 
-Route::get('/cms', 'ProductController@create')->name('CMS');
-Route::get('/cms/edit/{id}', 'ProductController@edit')->name('CMS-edit');
-Route::post('/cms/edit/{id}', 'ProductController@edit')->name('CMS-edit.store');
-Route::post('/cms', 'ProductController@store')->name('CMS.store');
+Route::prefix('/admin')->middleware('auth')->group(function () {
+    Route::get('/cms', 'ProductController@create')->name('CMS');
+    Route::get('/cms/edit/{id}', 'ProductController@edit')->name('CMS-edit');
+    Route::post('/cms/edit/{id}', 'ProductController@edit')->name('CMS-edit.store');
+    Route::post('/cms', 'ProductController@store')->name('CMS.store');
+
+});
 
 // id = anything
 Route::get('/product/{id}', 'ProductController@show')->name('product');
@@ -42,5 +45,9 @@ Route::get('/product/{id}', 'ProductController@show')->name('product');
 
 // id = number, name = text
 // Route::get('/posts/{id}/{name}', 'ProductController@showPost')->where(array('id' => '[0-9]+', 'name' => '[a-z]+'));
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::fallback('NotFoundController@show')->name('404');

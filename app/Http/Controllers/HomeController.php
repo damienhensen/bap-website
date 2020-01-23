@@ -6,26 +6,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        // Haal alle bedrijven op met QueryBuilder
-//        $companies = \DB::table('companies')->get();
-//        $companies = \DB::table('companies')->orderBy('name')->get();
-//        $companies = \DB::table('companies')->where('country', '=', 'Bahamas')->get();
-//        $companies = \DB::table('companies')->where('country', '=', 'Bahamas')->where('city', '=', 'Middelkerke')->get();
-//        $companies = \DB::table('companies')->where('country', '=', 'Bahamas')->where('city', '=', 'Middelkerke')->value('name');
-//        dd($companies);
-
-        // laat alle producten zien
-        $products = \DB::table('products')->orderBy('price', 'Asc')->get();
-
-        return view('home', ['products' => $products]);
+        $this->middleware('auth');
     }
 
-
-
-    public function showName($naam)
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
-        return view('hello', ['naam' => $naam]);
+        return view('home');
     }
 }

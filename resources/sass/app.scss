@@ -1,8 +1,16 @@
-//
-@import 'main';
-@import 'navigation';
-@import 'products';
-@import 'details';
-@import 'form';
-@import 'table';
-@import '404';
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import "main";
+@import "navigation";
+@import "products";
+@import "details";
+@import "table";
+@import "form";
+@import "404";

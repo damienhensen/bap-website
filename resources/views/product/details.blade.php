@@ -17,7 +17,7 @@
             <button class="previous--img"></button>
             <div class="img--here">
                 @for($i = 0; $i < 5; $i++)
-                    <img src="https://damienhensen.nl/portfolio/images/projects/MyBand.png" alt="Image{{ $i }}" class="product--details__carousel--img">
+                    <img src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F200108214800-coronavirus.jpg" alt="Image{{ $i }}" class="product--details__carousel--img">
                 @endfor
             </div>
             <button class="next--img"></button>

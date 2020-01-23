@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Products;
+use App\Product;
 
 class ProductController extends Controller
 {
@@ -51,7 +51,7 @@ class ProductController extends Controller
                 'date' => 'required|after_or_equal:today',
             ]);
 
-            $product                = new Products();
+            $product                = new Product();
 
             $product['name']        = $productData['title'];
             $product['description'] = $productData['description'];
