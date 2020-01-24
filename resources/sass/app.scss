@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+//@import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
 
 @import "main";
 @import "navigation";
@@ -13,4 +13,5 @@
 @import "details";
 @import "table";
 @import "form";
+@import "card";
 @import "404";

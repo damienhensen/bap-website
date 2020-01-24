@@ -1,0 +1,28 @@
+.card {
+    background: #636b6f;
+    margin: 2em auto;
+    padding: 3em;
+    border-radius: 23px;
+    width: 30vw;
+
+    .card-body {
+        max-width: 50%;
+        margin: 0 auto;
+
+        .form-group {
+            margin: 1em 0;
+        }
+
+        button {
+            font-size: 1em;
+            width: 100%;
+            padding: .25em;
+            border-radius: 1rem;
+            background: #6cb2eb;
+            border: 1px solid #3058a1;
+            box-sizing: border-box;
+            margin: 1em 0;
+            color: white;
+        }
+    }
+}

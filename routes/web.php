@@ -17,7 +17,7 @@
 
 Route::get('/', 'HomeController2@index')->name('Home');
 
-Route::get('/hallo/{naam}', 'HomeController@showName')->name('Hallo');
+Route::get('/hallo/{naam}', 'HomeController2@showName')->name('Hallo');
 
 Route::get('/contact', 'ContactController@show')->name('Contact');
 
@@ -48,6 +48,6 @@ Route::get('/product/{id}', 'ProductController@show')->name('product');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::fallback('NotFoundController@show')->name('404');

@@ -43,13 +43,6 @@
                 {{ $message }}
             </div>
             @enderror
-            <label>Image URL</label> <br>
-            <input class="product__form--image2 @error('image2') is-invalid @enderror" type="text" name="image2" value="{{ old('image2') }}"> <br>
-            @error('image2')
-            <div class="error-message">
-                {{ $message }}
-            </div>
-            @enderror
             <label>Prijs</label> <br>
             <input class="product__form--price @error('price') is-invalid @enderror" type="text" name="price" value="{{ old('price') }}"> <br>
             @error('price')

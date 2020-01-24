@@ -45,11 +45,13 @@ class ProductController extends Controller
                 'title' => 'required|min:3',
                 'description' => 'required|max:150',
                 'details' => 'required|min:10',
-//                'image' => 'required_without:image2|image',
-//                'image2' => 'required_without:image|nullable|url|ends_with:.jpg,.jpeg,.png,.svg',
+                'image' => 'image',
                 'price' => 'required|numeric|gt:0',
                 'date' => 'required|after_or_equal:today',
             ]);
+
+            $newFileName = $productData['image']->store('products', 'public');
+            $productData['image'] = $newFileName;
 
             $product                = new Product();
 
@@ -57,6 +59,7 @@ class ProductController extends Controller
             $product['description'] = $productData['description'];
             $product['details']     = $productData['details'];
             $product['price']       = $productData['price'];
+            $product['image']       = $productData['image'];
             $product['pubdate']     = $productData['date'];
 
             $product->save();
@@ -77,7 +80,7 @@ class ProductController extends Controller
 
 
 
-        return redirect()->to('cms');
+        return redirect()->to('admin/cms');
     }
 
     /**
